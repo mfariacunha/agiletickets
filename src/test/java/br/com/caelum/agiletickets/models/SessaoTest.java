@@ -38,4 +38,12 @@ public class SessaoTest {
         
         Assert.assertTrue(sessao.podeReservar(4));
 	}
+	
+	@Test
+	public void naoPodeVenderMaisIngressoQueQuantidadeDisponivel() throws Exception {
+		Sessao sessao = new Sessao();
+        sessao.setTotalIngressos(4);
+        
+        Assert.assertFalse(sessao.podeReservar(5));
+	}
 }
